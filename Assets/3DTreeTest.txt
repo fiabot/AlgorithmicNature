@@ -1,0 +1,10 @@
+// tree A (pg. 25)
+
+axiom=A
+angle=22.5
+number of derivations=3
+
+A=(1)[&FL!A]/////’[&FL!A]///////’[&FL!A]
+F=(1)S ///// F
+S=(1)F L
+L=(1)[’’’∧∧{-f+f+f-|-f+f+f}]
