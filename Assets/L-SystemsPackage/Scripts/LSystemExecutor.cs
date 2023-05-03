@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class LSystemExecutor : MonoBehaviour
 {
     [SerializeField]
-    private TextAsset file;
+    private TextAsset[] files;
     [SerializeField]
     private int segmentAxialSamples = 3;
     [SerializeField]
@@ -16,9 +16,9 @@ public class LSystemExecutor : MonoBehaviour
     [SerializeField]
     private float leafSize;
     [SerializeField]
-    private int leafAxialDensity = 1;
+    private int minLeafDensity = 1;
     [SerializeField]
-    private int leafRadialDensity = 1;
+    private int maxLeafDensity = 3;
     [SerializeField]
     private bool useFoliage;
     [SerializeField]
@@ -28,8 +28,15 @@ public class LSystemExecutor : MonoBehaviour
     [SerializeField]
     private Material leafMaterial;
 
+    private int leafAxialDensity; 
+    private int leafRadialDensity; 
+
     void Start()
-    {
+    {   
+        leafAxialDensity = UnityEngine.Random.Range(minLeafDensity, maxLeafDensity);
+        leafRadialDensity = UnityEngine.Random.Range(minLeafDensity, maxLeafDensity);
+        int fileIndex = UnityEngine.Random.Range(0, files.Length); 
+        TextAsset file = files[fileIndex];
         string axiom;
         float angle;
         int derivations;

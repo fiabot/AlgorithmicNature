@@ -192,6 +192,7 @@ public static class LSystemInterpreter
         Stack<Turtle> stack = new Stack<Turtle>();
         for (int i = 0; i < moduleString.Length; i++)
         {
+            float iterAngle = angle + UnityEngine.Random.Range(-10, 10); 
             string module = moduleString[i] + "";
             if (module == "F")
             {
@@ -212,27 +213,27 @@ public static class LSystemInterpreter
             }
             else if (module == "+")
             {
-                current.RotateZ(angle);
+                current.RotateZ(iterAngle);
             }
             else if (module == "-")
             {
-                current.RotateZ(-angle);
+                current.RotateZ(-iterAngle);
             }
             else if (module == "&")
             {
-                current.RotateX(angle);
+                current.RotateX(iterAngle);
             }
             else if (module == "^")
             {
-                current.RotateX(-angle);
+                current.RotateX(-iterAngle);
             }
             else if (module == "\\")
             {
-                current.RotateY(angle);
+                current.RotateY(iterAngle);
             }
             else if (module == "/")
             {
-                current.RotateY(-angle);
+                current.RotateY(-iterAngle);
             }
             else if (module == "|")
             {
